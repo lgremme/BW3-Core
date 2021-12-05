@@ -120,7 +120,7 @@ tput cup 13 15
 echo "[ 3/9] [###------]"
 tput cup 15 5
 echo "-> download Python, Yaml and other stuff.."
-sudo apt-get -y install python3 python3-yaml >> ${boswatch_install_path}/setup_log.txt 2>&1
+sudo apt-get -y install python3 python3-yaml python3-pip >> ${boswatch_install_path}/setup_log.txt 2>&1
 exitcodefunction $? download python
 
 tput cup 13 15

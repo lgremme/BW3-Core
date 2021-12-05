@@ -113,7 +113,7 @@ tput cup 13 15
 echo "[ 2/9] [##-------]"
 tput cup 15 5
 echo "-> download GIT and other stuff.........."
-apt-get -y install git cmake build-essential libusb-1.0 qt4-qmake qt4-default libpulse-dev libx11-dev sox >> $boswatchpath/install/setup_log.txt 2>&1
+apt-get -y install git cmake build-essential libusb-1.0 qt5-qmake libpulse-dev libx11-dev sox >> $boswatchpath/install/setup_log.txt 2>&1
 exitcodefunction $? download stuff
 
 tput cup 13 15
@@ -165,6 +165,8 @@ tput cup 15 5
 echo "-> compile multimon-ng................."
 mkdir -p build
 cd build
+# Export environment variable for qt5
+export QT_SELECT=qt5
 qmake ../multimon-ng.pro >> $boswatchpath/install/setup_log.txt 2>&1
 exitcodefunction $? qmake multimonNG
 
@@ -206,7 +208,7 @@ echo "sudo nano $boswatchpath/config/client.yaml   eg. server.yaml"
 echo "and modify the config as you need. This step is optional if you are upgrading an old version of BOSWatch3."
 echo "You can read the instructions on https://docs.boswatch.de/"
 tput setaf 1 # Rote Schrift
-echo "Please REBOOT bevor the first start"
+echo "Please REBOOT before the first start"
 tput setaf 9 # Schrift zurücksetzen
 echo "start Boswatch3 with"
 echo "sudo python3 bw_client.py -c client.yaml   and    sudo python3 bw_server.py -c server.yaml"

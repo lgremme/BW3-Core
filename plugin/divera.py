@@ -43,8 +43,8 @@ class BoswatchPlugin(PluginBase):
                                 "vehicle_ric": self.config.get("vehicle", default=""),
                                 "status_id": bwPacket.get("status"),
                                 "status_note": bwPacket.get("directionText"),
-                                "title": self.parseWildcards(self.config.get("title_pocsag", default="{RIC}({SRIC})\n{MSG}")),
-                                "text": self.parseWildcards(self.config.get("message_pocsag", default="{RIC}({SRIC})\n{MSG}")),
+                                "title": self.parseWildcards(self.config.get("title_fms", default="{FMS}")),
+                                "text": self.parseWildcards(self.config.get("message_fms", default="{FMS}")),
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
         apipath = "/api/fms"
@@ -59,7 +59,7 @@ class BoswatchPlugin(PluginBase):
                                 "accesskey": self.config.get("accesskey", default=""),
                                 "title": self.parseWildcards(self.config.get("title_pocsag", default="{RIC}({SRIC})\n{MSG}")),
                                 "ric": self.config.get("ric_pocsag", default=""),
-                                "text": self.parseWildcards(self.config.get("message_pocsag", default="{RIC}({SRIC})\n{MSG}")),
+                                "text": self.parseWildcards(self.config.get("message_pocsag", default="{MSG}")),
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
         apipath = "/api/alarm"
@@ -72,9 +72,9 @@ class BoswatchPlugin(PluginBase):
         Remove if not implemented"""
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
-                                "title": self.parseWildcards(self.config.get("title_zvei", default="{RIC}({SRIC})\n{MSG}")),
-                                "ric": self.config.get("tone_zvei", default=""),
-                                "text": self.parseWildcards(self.config.get("message_zvei", default="{RIC}({SRIC})\n{MSG}")),
+                                "title": self.parseWildcards(self.config.get("title_zvei", default="{TONE}")),
+                                "ric": self.parseWildcards(self.config.get(self.config.get("ric_zvei", default="{TONE}")),
+                                "text": self.parseWildcards(self.config.get("message_zvei", default="{TONE}")),
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
         apipath = "/api/alarm"
@@ -87,9 +87,9 @@ class BoswatchPlugin(PluginBase):
         Remove if not implemented"""
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
-                                "title": self.parseWildcards(self.config.get("title_msg", default="{RIC}({SRIC})\n{MSG}")),
+                                "title": self.parseWildcards(self.config.get("title_msg", default="{MSG}")),
                                 "ric": self.config.get("ric_msg", default=""),
-                                "text": self.parseWildcards(self.config.get("message_msg", default="{RIC}({SRIC})\n{MSG}")),
+                                "text": self.parseWildcards(self.config.get("message_msg", default="{MSG}")),
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
         apipath = "/api/alarm"

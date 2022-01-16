@@ -36,6 +36,7 @@ class SdrInput(InputBase):
             sdrProc.addArgument("-p " + str(sdrConfig.get("error", default="0")))      # frequency error in ppm
             sdrProc.addArgument("-l " + str(sdrConfig.get("squelch", default="1")))    # squelch
             sdrProc.addArgument("-g " + str(sdrConfig.get("gain", default="100")))     # gain
+            sdrProc.addArgument("-F " + str(sdrConfig.get("fir_size", default="0")))   # fir_size
             sdrProc.addArgument("-M fm")                                               # set mode to fm
             sdrProc.addArgument("-E DC")                                               # set DC filter
             sdrProc.addArgument("-s 22050")                                            # bit rate of audio stream

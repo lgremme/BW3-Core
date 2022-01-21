@@ -38,7 +38,7 @@ class BoswatchPlugin(PluginBase):
 
         @param bwPacket: bwPacket instance
         Remove if not implemented"""
-                apicall = urllib.parse.urlencode({
+        apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
                                 "vehicle_ric": self.config.get("vehicle", default=""),
                                 "status_id": bwPacket.get("status"),
@@ -73,7 +73,7 @@ class BoswatchPlugin(PluginBase):
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
                                 "title": self.parseWildcards(self.config.get("title_zvei", default="{TONE}")),
-                                "ric": self.parseWildcards(self.config.get(self.config.get("ric_zvei", default="{TONE}")),
+                                "ric": self.parseWildcards(self.config.get("ric_zvei", default="{TONE}")),
                                 "text": self.parseWildcards(self.config.get("message_zvei", default="{TONE}")),
                                 "priority": self.config.get("priority", default="FALSE"),
                             })

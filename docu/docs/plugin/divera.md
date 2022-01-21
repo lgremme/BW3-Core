@@ -31,24 +31,24 @@ Wildcards in den Urls werden automatisch ersetzt.
       accesskey: ajdlkfjsdklfjlksjflskdjf
       pocsag:
         priority: FALSE
-        title_pocsag: {RIC}({SRIC})\n{MSG}
-        message_pocsag: {MSG}
+        title_pocsag: "{RIC}({SRIC})\n{MSG}"
+        message_pocsag: "{MSG}"
         # RIC ist in Divera definiert
         ric_pocsag: Probealarm
       fms:
         priority: FALSE
-        title_fms: {FMS}
-        message_fms: {FMS}
+        title_fms: "{FMS}"
+        message_fms: "{FMS}"
         vehicle: MTF
      zvei:
        ric_zvei: Probealarm
-       title_zvei: {TONE}
-       message_zvei: {TONE}
+       title_zvei: "{TONE}"
+       message_zvei: "{TONE}"
        priority: FALSE
      msg:
        priority: FALSE
-        title_msg: {MSG}
-        message_msg: {MSG}
+        title_msg: "{MSG}"
+        message_msg: "{MSG}"
         # RIC ist in Divera definiert
         ric_msg: Probealarm
       

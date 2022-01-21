@@ -17,6 +17,11 @@ Wildcards in den Urls werden automatisch ersetzt.
 ## Konfiguration
 |Feld|Beschreibung|Default|
 |----|------------|-------|
+|accesskey|Web-API-Schlüssel von Divera24/7 ||
+|priority|Sonderrechte|false|
+|title| Titel der Meldung | s. Beispiel|
+|message| Nachrichteninhalt| s. Beispiel|
+|ric|Auszulösende RIC in Divera; Gruppen->Alarmierungs-RIC||
 |fms|Liste mit Urls für Fms-Alarmierung||
 |pocsag|Liste mit Urls für Pocsag-Alarmierung||
 |zvei|Liste mit Urls für Zvei-Alarmierung||
@@ -28,7 +33,7 @@ Wildcards in den Urls werden automatisch ersetzt.
     name: Divera Plugin
     res: divera
     config:
-      accesskey: ajdlkfjsdklfjlksjflskdjf
+      accesskey: API-Key
       pocsag:
         priority: FALSE
         title_pocsag: "{RIC}({SRIC})\n{MSG}"

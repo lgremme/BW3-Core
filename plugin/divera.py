@@ -40,7 +40,7 @@ class BoswatchPlugin(PluginBase):
         Remove if not implemented"""
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
-                                "vehicle_ric": self.config.get("vehicle", default=""),
+                                "vehicle_ric": self.parseWildcards(self.config.get("vehicle", default="")),
                                 "status_id": bwPacket.get("status"),
                                 "status_note": bwPacket.get("directionText"),
                                 "title": self.parseWildcards(self.config.get("title_fms", default="{FMS}")),
@@ -58,7 +58,7 @@ class BoswatchPlugin(PluginBase):
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
                                 "title": self.parseWildcards(self.config.get("title_pocsag", default="{RIC}({SRIC})\n{MSG}")),
-                                "ric": self.config.get("ric_pocsag", default=""),
+                                "ric": self.parseWildcards(self.config.get("ric_pocsag", default="")),
                                 "text": self.parseWildcards(self.config.get("message_pocsag", default="{MSG}")),
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
@@ -88,7 +88,7 @@ class BoswatchPlugin(PluginBase):
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
                                 "title": self.parseWildcards(self.config.get("title_msg", default="{MSG}")),
-                                "ric": self.config.get("ric_msg", default=""),
+                                "ric": self.parseWildcards(self.config.get("ric_msg", default="")),
                                 "text": self.parseWildcards(self.config.get("message_msg", default="{MSG}")),
                                 "priority": self.config.get("priority", default="FALSE"),
                             })

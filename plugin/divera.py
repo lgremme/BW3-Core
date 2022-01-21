@@ -48,7 +48,7 @@ class BoswatchPlugin(PluginBase):
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
         apipath = "/api/fms"
-        self.makeRequests(self, apipath, apicall)
+        self.makeRequests(apipath, apicall)
 
     def pocsag(self, bwPacket):
         """!Called on POCSAG alarm
@@ -63,7 +63,7 @@ class BoswatchPlugin(PluginBase):
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
         apipath = "/api/alarm"
-        self.makeRequests(self, apipath, apicall)
+        self.makeRequests(apipath, apicall)
 
     def zvei(self, bwPacket):
         """!Called on ZVEI alarm
@@ -78,7 +78,7 @@ class BoswatchPlugin(PluginBase):
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
         apipath = "/api/alarm"
-        self.makeRequests(self, apipath, apicall)
+        self.makeRequests(apipath, apicall)
 
     def msg(self, bwPacket):
         """!Called on MSG packet
@@ -93,7 +93,7 @@ class BoswatchPlugin(PluginBase):
                                 "priority": self.config.get("priority", default="FALSE"),
                             })
         apipath = "/api/alarm"
-        self.makeRequests(self, apipath, apicall)
+        self.makeRequests(apipath, apicall)
 
     def makeRequests(self, apipath, apicall):
         """Parses wildcard urls and handles asynchronus requests
@@ -107,16 +107,16 @@ class BoswatchPlugin(PluginBase):
         future = asyncio.ensure_future(self.asyncRequests(request))
         loop.run_until_complete(future)
 
-    async def asyncRequests(self, urls):
+    async def asyncRequests(self, url):
         """Handles asynchronus requests
 
         @param urls: array of urls to send requests to"""
         tasks = []
 
         async with ClientSession() as session:
-            for url in urls:
-                task = asyncio.ensure_future(self.fetch(url, session))
-                tasks.append(task)
+            logging.info("Generated URL: [{}]".format(url))
+            task = asyncio.ensure_future(self.fetch(url, session))
+            tasks.append(task)
 
             responses = asyncio.gather(*tasks)
             await responses
@@ -127,6 +127,7 @@ class BoswatchPlugin(PluginBase):
         @param url: url
 
         @param session: Clientsession instance"""
-        async with session.get(url) as response:
+        logging.info("Post URL: [{}]".format(url))
+        async with session.post(url) as response:
             logging.info("{} returned [{}]".format(response.url, response.status))
             return await response.read()

@@ -22,10 +22,7 @@ Wildcards in den Urls werden automatisch ersetzt.
 |title| Titel der Meldung | s. Beispiel|
 |message| Nachrichteninhalt| s. Beispiel|
 |ric|Auszulösende RIC in Divera; Gruppen->Alarmierungs-RIC||
-|fms|Liste mit Urls für Fms-Alarmierung||
-|pocsag|Liste mit Urls für Pocsag-Alarmierung||
-|zvei|Liste mit Urls für Zvei-Alarmierung||
-|msg|Liste mit Urls für Msg-Alarmierung||
+|vehicle|Fahrzeug-Alarmierungs-RIC||
 
 **Beispiel:**
 ```yaml

@@ -32,27 +32,27 @@ Wildcards in den Urls werden automatisch ersetzt.
     config:
       accesskey: API-Key
       pocsag:
-        priority: FALSE
-        title_pocsag: "{RIC}({SRIC})\n{MSG}"
-        message_pocsag: "{MSG}"
+        priority: false
+        title: "{RIC}({SRIC})\n{MSG}"
+        message: "{MSG}"
         # RIC ist in Divera definiert
-        ric_pocsag: Probealarm
+        ric: Probealarm
       fms:
-        priority: FALSE
-        title_fms: "{FMS}"
-        message_fms: "{FMS}"
+        priority: false
+        title: "{FMS}"
+        message: "{FMS}"
         vehicle: MTF
      zvei:
-       ric_zvei: Probealarm
-       title_zvei: "{TONE}"
-       message_zvei: "{TONE}"
-       priority: FALSE
+       ric: Probealarm
+       title: "{TONE}"
+       message: "{TONE}"
+       priority: false
      msg:
-       priority: FALSE
-        title_msg: "{MSG}"
-        message_msg: "{MSG}"
-        # RIC ist in Divera definiert
-        ric_msg: Probealarm
+       priority: false
+       title: "{MSG}"
+       message: "{MSG}"
+       # RIC ist in Divera definiert
+       ric: Probealarm
       
 ```
 

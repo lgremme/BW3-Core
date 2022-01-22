@@ -39,7 +39,7 @@ class BoswatchPlugin(PluginBase):
 
         @param bwPacket: bwPacket instance
         Remove if not implemented"""
-        fms_data =  self.config.get("fms", default=[])
+        fms_data =  self.config.get("fms")
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
                                 "vehicle_ric": self.parseWildcards(fms_data.get("vehicle", default="")),
@@ -73,7 +73,7 @@ class BoswatchPlugin(PluginBase):
 
         @param bwPacket: bwPacket instance
         Remove if not implemented"""
-        zvei_data =  self.config.get("zvei", default=[])
+        zvei_data =  self.config.get("zvei")
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
                                 "title": self.parseWildcards(zvei_data.get("title", default="{TONE}")),
@@ -89,7 +89,7 @@ class BoswatchPlugin(PluginBase):
 
         @param bwPacket: bwPacket instance
         Remove if not implemented"""
-        msg_data =  self.config.get("msg", default=[])
+        msg_data =  self.config.get("msg")
         apicall = urllib.parse.urlencode({
                                 "accesskey": self.config.get("accesskey", default=""),
                                 "title": self.parseWildcards(msg_data.get("title", default="{MSG}")),

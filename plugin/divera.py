@@ -63,7 +63,7 @@ class BoswatchPlugin(PluginBase):
                                 "title": self.parseWildcards(poc_data.get("title", default="{RIC}({SRIC})\n{MSG}")),
                                 "ric": self.parseWildcards(poc_data.get("ric", default="")),
                                 "text": self.parseWildcards(poc_data.get("message", default="{MSG}")),
-                                "priority": poc.get("priority", default="false"),
+                                "priority": poc_data.get("priority", default="false"),
                             })
         apipath = "/api/alarm"
         self.makeRequests(apipath, apicall)

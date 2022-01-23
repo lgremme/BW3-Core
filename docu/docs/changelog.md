@@ -4,10 +4,14 @@
 ## Version [3.0.1] - date
 ### Added
  * Divera24/7-Plugin
+ * Python3-pip for requirements in install-script
+ * Alsa-utils in install-script
 ### Changed
 ### Deprecated
 ### Removed
 ### Fixed
+ * Install-Script with pathes
+ * Running RTL-FM Version (on RPi buster)
 ### Security
 
 ## Version [2.9.0] - date
